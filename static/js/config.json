@@ -1,0 +1,47 @@
+{
+    "about": {
+        "title": "About LearnBasicPy",
+        "description": "LearnBasicPy is a comprehensive Python learning platform designed to help beginners master Python programming through interactive lessons and hands-on practice.",
+        "features": [
+            {
+                "title": "Interactive Learning",
+                "description": "Learn Python with our interactive code editor that lets you write and execute code in real-time"
+            },
+            {
+                "title": "Structured Curriculum",
+                "description": "Well-organized lessons covering everything from basic syntax to advanced database operations"
+            },
+            {
+                "title": "Practical Exercises",
+                "description": "Each lesson includes practical exercises to reinforce your learning"
+            },
+            {
+                "title": "Database Integration",
+                "description": "Comprehensive coverage of database handling with MySQL and PostgreSQL"
+            },
+            {
+                "title": "Real-time Feedback",
+                "description": "Get immediate feedback on your code execution and exercises"
+            }
+        ],
+        "mission": "Our mission is to make Python programming accessible to everyone through practical, hands-on learning experiences."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "description": "Have questions or suggestions? We'd love to hear from you!",
+        "info": {
+            "email": "odoomchristopher22@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/christopher-odoom-53934615a"
+        },
+        "office": {
+            "address": "123 Learning Street",
+            "city": "San Francisco",
+            "state": "CA",
+            "country": "USA"
+        },
+        "support": {
+            "hours": "Monday - Friday: 9:00 AM - 5:00 PM PST",
+            "response_time": "We typically respond within 24 hours"
+        }
+    }
+} 

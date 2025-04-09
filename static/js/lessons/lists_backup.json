@@ -1,0 +1,162 @@
+{
+    "title": "Lists and Tuples",
+    "content": "<h2>Lists and Tuples in Python</h2><p>Lists and tuples are sequence data types that can store collections of items. While they share similarities, they have important differences in terms of mutability and usage.</p><h3>1. Lists</h3><p>Lists are ordered, mutable (changeable) collections that can store items of different data types.</p><h4>Creating Lists</h4><pre><code># Empty list
+my_list = []
+
+# List with items
+fruits = [\"apple\", \"banana\", \"cherry\"]
+
+# List with mixed data types
+mixed = [1, \"Hello\", True, 3.14]
+
+# List using the list() constructor
+another_list = list((\"cat\", \"dog\", \"rabbit\"))</code></pre><h4>Accessing List Items</h4><p>Items in a list are indexed, starting from 0:</p><pre><code>fruits = [\"apple\", \"banana\", \"cherry\"]
+
+# Accessing by index
+print(fruits[0])  # Output: apple
+print(fruits[1])  # Output: banana
+
+# Negative indexing (from the end)
+print(fruits[-1])  # Output: cherry (last item)
+print(fruits[-2])  # Output: banana (second-to-last item)
+
+# Slicing [start:end:step]
+print(fruits[0:2])    # Output: ['apple', 'banana'] (items from index 0 to 1)
+print(fruits[:2])     # Output: ['apple', 'banana'] (items from beginning to index 1)
+print(fruits[1:])     # Output: ['banana', 'cherry'] (items from index 1 to end)
+print(fruits[::2])    # Output: ['apple', 'cherry'] (every second item)</code></pre><h4>Modifying Lists</h4><pre><code>fruits = [\"apple\", \"banana\", \"cherry\"]
+
+# Change item value
+fruits[1] = \"blueberry\"
+print(fruits)  # Output: ['apple', 'blueberry', 'cherry']
+
+# Add items
+fruits.append(\"orange\")  # Add to the end
+print(fruits)  # Output: ['apple', 'blueberry', 'cherry', 'orange']
+
+fruits.insert(1, \"kiwi\")  # Insert at specific position
+print(fruits)  # Output: ['apple', 'kiwi', 'blueberry', 'cherry', 'orange']
+
+# Extend a list
+more_fruits = [\"mango\", \"pineapple\"]
+fruits.extend(more_fruits)
+print(fruits)  # Output: ['apple', 'kiwi', 'blueberry', 'cherry', 'orange', 'mango', 'pineapple']
+
+# Remove items
+fruits.remove(\"blueberry\")  # Remove specific item
+print(fruits)  # Output: ['apple', 'kiwi', 'cherry', 'orange', 'mango', 'pineapple']
+
+removed_item = fruits.pop(1)  # Remove by index and return item
+print(removed_item)  # Output: kiwi
+print(fruits)  # Output: ['apple', 'cherry', 'orange', 'mango', 'pineapple']
+
+del fruits[0]  # Delete by index
+print(fruits)  # Output: ['cherry', 'orange', 'mango', 'pineapple']
+
+fruits.clear()  # Remove all items
+print(fruits)  # Output: []</code></pre><h4>List Methods and Operations</h4><pre><code>numbers = [3, 1, 4, 1, 5, 9, 2]
+
+# Finding length
+print(len(numbers))  # Output: 7
+
+# Counting occurrences
+print(numbers.count(1))  # Output: 2
+
+# Finding index
+print(numbers.index(5))  # Output: 4
+
+# Sorting
+numbers.sort()
+print(numbers)  # Output: [1, 1, 2, 3, 4, 5, 9]
+
+# Reverse sorting
+numbers.sort(reverse=True)
+print(numbers)  # Output: [9, 5, 4, 3, 2, 1, 1]
+
+# Reversing
+numbers.reverse()
+print(numbers)  # Output: [1, 1, 2, 3, 4, 5, 9]
+
+# Copying
+numbers_copy = numbers.copy()
+# Or: numbers_copy = numbers[:]</code></pre><h4>List Comprehensions</h4><p>A concise way to create lists:</p><pre><code># Create a list of squares
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+
+# List comprehension with condition
+even_squares = [x**2 for x in range(1, 11) if x % 2 == 0]
+print(even_squares)  # Output: [4, 16, 36, 64, 100]</code></pre><h3>2. Tuples</h3><p>Tuples are ordered, immutable (unchangeable) collections that can store items of different data types.</p><h4>Creating Tuples</h4><pre><code># Empty tuple
+empty_tuple = ()
+
+# Tuple with items
+fruits = (\"apple\", \"banana\", \"cherry\")
+
+# Note: a single-item tuple needs a trailing comma
+single_item = (\"apple\",)
+
+# Tuple with mixed data types
+mixed = (1, \"Hello\", True, 3.14)
+
+# Tuple using the tuple() constructor
+another_tuple = tuple([\"cat\", \"dog\", \"rabbit\"])</code></pre><h4>Accessing Tuple Items</h4><p>Similar to lists, tuples are indexed and support slicing:</p><pre><code>fruits = (\"apple\", \"banana\", \"cherry\")
+
+# Accessing by index
+print(fruits[0])  # Output: apple
+print(fruits[1])  # Output: banana
+
+# Negative indexing
+print(fruits[-1])  # Output: cherry
+
+# Slicing
+print(fruits[0:2])  # Output: ('apple', 'banana')</code></pre><h4>Tuple Methods and Operations</h4><p>Since tuples are immutable, they have fewer methods than lists, but they support operations like counting and indexing:</p><pre><code>numbers = (3, 1, 4, 1, 5, 9, 2)
+
+# Finding length
+print(len(numbers))  # Output: 7
+
+# Counting occurrences
+print(numbers.count(1))  # Output: 2
+
+# Finding index
+print(numbers.index(5))  # Output: 4</code></pre><h4>Working with Tuples</h4><p>Although tuples are immutable, you can create new tuples by concatenation:</p><pre><code>tuple1 = (\"a\", \"b\", \"c\")
+tuple2 = (1, 2, 3)
+
+# Concatenation
+tuple3 = tuple1 + tuple2
+print(tuple3)  # Output: ('a', 'b', 'c', 1, 2, 3)
+
+# Repetition
+repeated = tuple1 * 2
+print(repeated)  # Output: ('a', 'b', 'c', 'a', 'b', 'c')</code></pre><h4>Unpacking Tuples</h4><p>Tuples can be unpacked into variables:</p><pre><code>coordinates = (3, 4, 5)
+x, y, z = coordinates
+print(x)  # Output: 3
+print(y)  # Output: 4
+print(z)  # Output: 5</code></pre><h3>3. Lists vs. Tuples</h3><table class=\"operator-table\"><tr><th>Feature</th><th>Lists</th><th>Tuples</th></tr><tr><td>Syntax</td><td>Square brackets <code>[]</code></td><td>Parentheses <code>()</code></td></tr><tr><td>Mutability</td><td>Mutable (can be changed)</td><td>Immutable (cannot be changed)</td></tr><tr><td>Methods</td><td>Many (append, insert, remove, etc.)</td><td>Few (count, index)</td></tr><tr><td>Performance</td><td>Slightly slower</td><td>Slightly faster</td></tr><tr><td>Use Case</td><td>When you need to modify the collection</td><td>When data shouldn't change (like coordinates)</td></tr></table><h4>When to Use Each</h4><ul><li><strong>Use Lists when:</strong><ul><li>You need to change the contents frequently</li><li>You need to insert or delete items</li><li>You're working with homogeneous data that requires many operations</li></ul></li><li><strong>Use Tuples when:</strong><ul><li>Your data should not change (like constants)</li><li>You want to ensure the data remains unchanged (data integrity)</li><li>You need a hashable data type (e.g., as dictionary keys)</li><li>You're working with heterogeneous data (mixed types)</li></ul></li></ul><h4>Converting Between Lists and Tuples</h4><pre><code># List to tuple
+my_list = [1, 2, 3, 4]
+my_tuple = tuple(my_list)
+print(my_tuple)  # Output: (1, 2, 3, 4)
+
+# Tuple to list
+my_tuple = (1, 2, 3, 4)
+my_list = list(my_tuple)
+print(my_list)  # Output: [1, 2, 3, 4]</code></pre>",
+    "exercises": [
+        {
+            "title": "List Operations",
+            "description": "Create a list of your favorite foods, then perform the following operations: add a new food, remove one, change an existing one, and print the sorted list.",
+            "hint": "Use append() to add, remove() to remove, index assignment to change, and sort() to sort the list.",
+            "startingCode": "# Create your list of favorite foods\nfavorite_foods = []\n\n# Add a new food to the list\n\n\n# Remove one food from the list\n\n\n# Change an existing food\n\n\n# Sort and print the list\n"
+        },
+        {
+            "title": "Tuple Unpacking",
+            "description": "Create a tuple containing information about a person (name, age, city), then unpack the tuple into variables and print a sentence using the variables.",
+            "hint": "Create the tuple with parentheses, then use multiple assignment to unpack it: name, age, city = person_tuple.",
+            "startingCode": "# Create a tuple with information about a person\nperson = ()\n\n# Unpack the tuple into variables\n\n\n# Print a sentence using the variables\n"
+        },
+        {
+            "title": "List Comprehension Challenge",
+            "description": "Using list comprehension, create a list of squares of even numbers from 1 to 20. Then use a second list comprehension to filter out squares that are divisible by 3.",
+            "hint": "For the first list comprehension, use: [x**2 for x in range(1, 21) if x % 2 == 0]. For filtering, use: [x for x in squares if x % 3 != 0].",
+            "startingCode": "# Create a list of squares of even numbers from 1 to 20\n\n\n# Filter out squares that are divisible by 3\n\n\n# Print both lists\n"
+        }
+    ]
+} 

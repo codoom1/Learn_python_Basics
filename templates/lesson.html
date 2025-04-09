@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lesson_name|capitalize }} - LearnBasicPy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/theme/dracula.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fab fa-python"></i>
+            <h1>LearnBasicPy</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                 <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Lessons</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/lessons/variables">1. Variables and Data Types</a></li>
+                        <li><a class="dropdown-item" href="/lessons/operators">2. Operators and Expressions</a></li>
+                        <li><a class="dropdown-item" href="/lessons/conditionals">3. Conditionals</a></li>
+                        <li><a class="dropdown-item" href="/lessons/loops">4. Loops</a></li>
+                        <li><a class="dropdown-item" href="/lessons/functions">5. Functions</a></li>
+                        <li><a class="dropdown-item" href="/lessons/lists">6. Lists and Tuples</a></li>
+                        <li><a class="dropdown-item" href="/lessons/dictionaries">7. Dictionaries</a></li>
+                        <li><a class="dropdown-item" href="/lessons/recursion">8. Recursion</a></li>
+                        <li><a class="dropdown-item" href="/lessons/file_handling">9. File Handling</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="/lessons/database_handling">10. Database Handling</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/lessons/mysql_database">MySQL</a></li>
+                                <li><a class="dropdown-item" href="/lessons/postgresql_database">PostgreSQL</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="document.getElementById('aboutModal').style.display='block'; return false;">About</a></li>
+                <li><a href="#" onclick="document.getElementById('contactModal').style.display='block'; return false;">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="lesson-container">
+        <aside class="lesson-sidebar">
+            <h3>Lessons</h3>
+            <ul>
+                <li><a href="/lessons/variables" class="{{ 'active' if lesson_name == 'variables' else '' }}">1. Variables and Data Types</a></li>
+                <li><a href="/lessons/operators" class="{{ 'active' if lesson_name == 'operators' else '' }}">2. Operators and Expressions</a></li>
+                <li><a href="/lessons/conditionals" class="{{ 'active' if lesson_name == 'conditionals' else '' }}">3. Conditionals</a></li>
+                <li><a href="/lessons/loops" class="{{ 'active' if lesson_name == 'loops' else '' }}">4. Loops</a></li>
+                <li><a href="/lessons/functions" class="{{ 'active' if lesson_name == 'functions' else '' }}">5. Functions</a></li>
+                <li><a href="/lessons/lists" class="{{ 'active' if lesson_name == 'lists' else '' }}">6. Lists and Tuples</a></li>
+                <li><a href="/lessons/dictionaries" class="{{ 'active' if lesson_name == 'dictionaries' else '' }}">7. Dictionaries</a></li>
+                <li><a href="/lessons/recursion" class="{{ 'active' if lesson_name == 'recursion' else '' }}">8. Recursion</a></li>
+                <li><a href="/lessons/file_handling" class="{{ 'active' if lesson_name == 'file_handling' else '' }}">9. File Handling</a></li>
+                <li><a href="/lessons/database_handling" class="{{ 'active' if lesson_name == 'database_handling' else '' }}">10. Database Handling</a>
+                    <ul class="sub-lessons">
+                        <li><a href="/lessons/mysql_database" class="{{ 'active' if lesson_name == 'mysql_database' else '' }}">MySQL Database</a></li>
+                        <li><a href="/lessons/postgresql_database" class="{{ 'active' if lesson_name == 'postgresql_database' else '' }}">PostgreSQL Database</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="lesson-content">
+            <div class="lesson-header">
+                <h1 id="lesson-title">Loading lesson content...</h1>
+                <div class="lesson-navigation">
+                    <a href="#" id="prev-lesson" class="btn secondary"><i class="fas fa-arrow-left"></i> Previous</a>
+                    <a href="#" id="next-lesson" class="btn primary">Next <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="lesson-section">
+                <div id="lesson-theory"></div>
+            </div>
+
+            <div class="practice-section">
+                <h2>Practice</h2>
+                <div class="code-editor-container">
+                    <div class="editor-header">
+                        <span>Code Editor</span>
+                        <button id="run-code" class="btn primary"><i class="fas fa-play"></i> Run Code</button>
+                    </div>
+                    <textarea id="code-editor"></textarea>
+                    <div class="editor-header output-header">
+                        <span>Output</span>
+                        <button id="clear-output" class="btn secondary"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                    <div id="output" class="code-output"></div>
+                </div>
+            </div>
+
+            <div class="exercises-section">
+                <h2>Exercises</h2>
+                <div id="exercises-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fab fa-python"></i>
+                <h3>LearnBasicPy</h3>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#" onclick="document.getElementById('aboutModal').style.display='block'; return false;">About</a></li>
+                    <li><a href="#" onclick="document.getElementById('contactModal').style.display='block'; return false;">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for new lessons and features.</p>
+                <form>
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 LearnBasicPy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('aboutModal').style.display='none';">&times;</span>
+            <div id="aboutContent">
+                <div class="modal-header">
+                    <h2>Loading...</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="description"></p>
+                    <div class="features">
+                        <h3>Our Features</h3>
+                        <div class="features-grid"></div>
+                    </div>
+                    <div class="mission">
+                        <h3>Our Mission</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('contactModal').style.display='none';">&times;</span>
+            <div id="contactContent">
+                <div class="modal-header">
+                    <h2>Loading...</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="description"></p>
+                    
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="" class="email-link" target="_blank">Loading...</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="" class="github-link" target="_blank">Loading...</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="" class="linkedin-link" target="_blank">Loading...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="support-info">
+                        <h3>Support Hours</h3>
+                        <p class="hours"></p>
+                        <p class="response-time"></p>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message:</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/mode/python/python.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lesson.js') }}"></script>
+    <script>
+        // Set current lesson name for JS
+        const currentLesson = "{{ lesson_name }}";
+    </script>
+</body>
+</html> 

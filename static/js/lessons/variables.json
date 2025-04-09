@@ -1,0 +1,24 @@
+{
+    "title": "Variables and Data Types",
+    "content": "<h2>Introduction to Variables</h2><p>Variables are containers for storing data values. In Python, a variable is created the moment you assign a value to it:</p><pre><code># Creating variables\nname = \"John\"\nage = 25\nheight = 1.75</code></pre><p>Python has no command for declaring a variable. A variable is created the moment you first assign a value to it.</p><h2>Variable Naming Rules</h2><ul><li>A variable name must start with a letter or the underscore character</li><li>A variable name cannot start with a number</li><li>A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _)</li><li>Variable names are case-sensitive (age, Age and AGE are three different variables)</li></ul><p>Examples of valid variable names:</p><pre><code>my_var = \"John\"\n_my_var = \"John\"\nmyVar = \"John\"\nMYVAR = \"John\"\nmy_var_1 = \"John\"</code></pre><h2>Python Data Types</h2><p>In Python, there are several built-in data types:</p><h3>1. Text Type</h3><p><strong>str</strong>: String literals can be enclosed by either double or single quotes:</p><pre><code>message = \"Hello, World!\"\nname = 'John'</code></pre><h3>2. Numeric Types</h3><p><strong>int</strong>: Integer numbers without decimal part:</p><pre><code>age = 25\nquantity = -10</code></pre><p><strong>float</strong>: Numbers with decimal part:</p><pre><code>height = 1.75\ntemperature = -2.5</code></pre><p><strong>complex</strong>: Complex numbers with real and imaginary parts:</p><pre><code>z = 1 + 2j</code></pre><h3>3. Boolean Type</h3><p><strong>bool</strong>: Boolean values (True or False):</p><pre><code>is_student = True\nis_adult = False</code></pre><h3>4. Sequence Types</h3><p><strong>list</strong>: Ordered and changeable collections:</p><pre><code>fruits = [\"apple\", \"banana\", \"cherry\"]</code></pre><p><strong>tuple</strong>: Ordered and unchangeable collections:</p><pre><code>coordinates = (10, 20)</code></pre><h3>5. Mapping Type</h3><p><strong>dict</strong>: Key-value pairs:</p><pre><code>person = {\"name\": \"John\", \"age\": 25}</code></pre><h2>Checking the Type</h2><p>You can get the data type of any object by using the <code>type()</code> function:</p><pre><code>x = 5\nprint(type(x))  # Output: &lt;class 'int'&gt;</code></pre><h2>Type Conversion</h2><p>You can convert from one type to another using constructor functions:</p><pre><code># Convert from int to float\nx = 5\nfloat_x = float(x)  # Result: 5.0\n\n# Convert from float to int\ny = 3.14\nint_y = int(y)  # Result: 3 (truncates decimal part)\n\n# Convert to string\nz = str(5)  # Result: \"5\"</code></pre>",
+    "exercises": [
+        {
+            "title": "Variable Assignment",
+            "description": "Create variables with your name, age, and height (in meters). Then print each variable on a new line.",
+            "hint": "Use the print() function to display each variable. Remember to assign appropriate data types: string for name, integer for age, and float for height.",
+            "startingCode": "# Create your variables below\nname = \"\"\nage = 0\nheight = 0.0\n\n# Print each variable\n"
+        },
+        {
+            "title": "Type Conversion",
+            "description": "Convert the given string \"42\" to an integer and float. Then print both results with their types.",
+            "hint": "Use the int() and float() functions for conversion, and use type() to display the data type.",
+            "startingCode": "# Original value as a string\nnum_string = \"42\"\n\n# Convert to integer\n\n\n# Convert to float\n\n\n# Print results with their types\n"
+        },
+        {
+            "title": "Working with Different Data Types",
+            "description": "Create a list of your favorite colors, a tuple with your home coordinates (x, y), and a dictionary with your name and age. Print each of them.",
+            "hint": "Use square brackets [] for lists, parentheses () for tuples, and curly braces {} for dictionaries.",
+            "startingCode": "# Create a list of colors\ncolors = \n\n# Create a tuple of coordinates\ncoordinates = \n\n# Create a dictionary with name and age\nperson = \n\n# Print all variables\n"
+        }
+    ]
+} 
